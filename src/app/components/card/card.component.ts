@@ -1,18 +1,22 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Card } from '../../models/card';
+// import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
-export class CardComponent implements OnInit {
+export class CardComponent implements OnInit, OnDestroy {
 
   @Input() card: Card;
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
-    console.log(this.card);
+  }
+
+  ngOnDestroy() {
   }
 
 }
