@@ -1,0 +1,6 @@
+<app-card [card]="hand?.slot1$ | async"></app-card>
+<app-card [card]="hand?.slot2$ | async"></app-card>
+<app-card [card]="hand?.slot3$ | async"></app-card>
+<app-card [card]="hand?.slot4$ | async"></app-card>
+<button (click)="addCard()" [disabled]="hand?.slot4">Add Card</button>
+Score: {{ hand?.score }}

@@ -1,0 +1,14 @@
+<div class="spread-out-deck">
+    <app-card [card]="turnService.currentCard"></app-card>
+    <app-hand [hand]="turnService.firstHand"></app-hand>
+    <app-hand [hand]="turnService.secondHand"></app-hand>
+    <app-hand [hand]="turnService.thirdHand"></app-hand>
+    <app-hand [hand]="turnService.fourthHand"></app-hand>
+    <app-hand [hand]="turnService.cribHand"></app-hand>
+    <div>
+      <span>Turn Card</span>
+      <app-card *ngIf="turnService.currentIndex===20" [card]="turnService.turnCard"></app-card>
+    </div>
+</div>
+
+<button (click)="turnService.clearTurn()">New Turn</button>
