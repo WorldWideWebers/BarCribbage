@@ -5,7 +5,7 @@ import {TurnService} from '../../services/turn-service';
 @Component({
   selector: 'app-hand',
   templateUrl: './hand.component.html',
-  styleUrls: ['./hand.component.sass']
+  styleUrls: ['./hand.component.scss']
 })
 export class HandComponent implements OnInit {
 

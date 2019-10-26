@@ -15,16 +15,20 @@ export class Card {
     public sort: number
   ) {}
 
+  get color() {
+    return this.suit === Suit.Heart || this.suit === Suit.Diamond ? 'red' : 'black';
+  }
+
   get suitInitial() {
     switch (this.suit) {
       case Suit.Club:
-        return 'C';
+        return '♣';
       case Suit.Diamond:
-        return 'D';
+        return '♦';
       case Suit.Heart:
-        return 'H';
+        return '♥';
       case Suit.Spade:
-        return 'S';
+        return '♠';
     }
   }
 }

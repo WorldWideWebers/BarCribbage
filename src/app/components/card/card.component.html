@@ -1,3 +1,4 @@
-<div class="card">
-  {{ card?.suitInitial }} - {{ card?.value }} : {{ card?.sort }}
+<div *ngIf="card" class="card" [ngStyle]="{'color': card.color}">
+  <span>{{ card?.value }}</span>
+  <span>{{ card?.suitInitial }}</span>
 </div>
