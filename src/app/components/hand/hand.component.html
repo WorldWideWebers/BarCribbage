@@ -5,4 +5,4 @@
   <app-card class="hand" [card]="hand?.slot4$ | async"></app-card>
 </div>
 <button (click)="addCard()" [disabled]="hand?.slot4">Add Card</button>
-<label>Score:</label>  <input type="number" [(ngModel)]="hand.score" />
+<label for="score">Score:</label>  <input id="score" type="number" [(ngModel)]="hand.score" />
