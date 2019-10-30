@@ -77,4 +77,9 @@ export class TurnService {
       this.turnComplete$.next(this.turnComplete);
     }
   }
+
+  scoreHand(hand: Hand, total: number) {
+    hand.score = total;
+    this.totalScore += total;
+  }
 }
