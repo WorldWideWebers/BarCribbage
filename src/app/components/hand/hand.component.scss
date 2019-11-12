@@ -1,8 +1,9 @@
 .hands {
-  height: 200px;
   border: 1px black;
+  display: flex;
+  flex-direction: row;
 }
 
 .hand {
-  padding: 30px;
+  padding: 5px;
 }
