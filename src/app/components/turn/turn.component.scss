@@ -11,6 +11,10 @@
   height: 100%;
 }
 
-.spread-out-deck {
+app-hand {
+  min-height: 85px;
+}
 
+.spread-out-deck {
+  max-width: 200px;
 }

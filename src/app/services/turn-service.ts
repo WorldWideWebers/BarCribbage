@@ -72,9 +72,23 @@ export class TurnService {
     this.currentCard = this.deck.shuffledCards[this.currentIndex];
     this.currentCard$.next(this.currentCard);
 
-    if (this.currentIndex === 21) {
+    if (this.currentIndex === 20) {
       this.turnComplete = true;
       this.turnComplete$.next(this.turnComplete);
+
+      // add this card to all hands
+      this.firstHand.addCard(this.deck.shuffleCards[this.currentIndex]);
+      this.secondHand.addCard(this.deck.shuffleCards[this.currentIndex]);
+      this.thirdHand.addCard(this.deck.shuffleCards[this.currentIndex]);
+      this.fourthHand.addCard(this.deck.shuffleCards[this.currentIndex]);
+      this.cribHand.addCard(this.deck.shuffleCards[this.currentIndex]);
+
+      this.firstHand.logHand('First Hand');
+      this.secondHand.logHand('Second Hand');
+      this.thirdHand.logHand('Third Hand');
+      this.fourthHand.logHand('Fourth Hand');
+      this.cribHand.logHand('Crib Hand');
+
     }
   }
 
