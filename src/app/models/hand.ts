@@ -171,6 +171,12 @@ export class Hand {
 
     }) ;
 
+    const flushCombos = this.combinations.filter(combo =>
+      ((combo.length === 4 && this.comboMissingTurnCard(combo)) ||
+        combo.length === 5));
+    flushCombos.forEach(flushCombo => {
+      flushCombo.sort((a: Card, b: Card) => a.sequence - b.sequence);
+    });
 
   }
 
@@ -178,5 +184,16 @@ export class Hand {
     let total = 0;
     combo.forEach(card => total += card.count);
     return total === 15;
+  }
+
+  comboMissingTurnCard(combo: Card[]): boolean {
+    let hasTurnCard = false;
+
+    combo.forEach(card => {
+      if (card.id === this.nobsCard.id) {
+        hasTurnCard = true;
+      }
+    });
+    return hasTurnCard;
   }
 }
