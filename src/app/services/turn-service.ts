@@ -64,6 +64,8 @@ export class TurnService {
   moveToHand(hand: Hand) {
     hand.addCard(this.currentCard);
     this.changeIndex();
+    this.totalScore = this.firstHand.score.totalScore + this.secondHand.score.totalScore
+    + this.thirdHand.score.totalScore + this.fourthHand.score.totalScore + this.cribHand.score.totalScore;
   }
 
   private changeIndex() {
@@ -77,12 +79,17 @@ export class TurnService {
       this.turnComplete$.next(this.turnComplete);
 
       // add this card to all hands
-      this.firstHand.addCard(this.deck.shuffleCards[this.currentIndex]);
-      this.secondHand.addCard(this.deck.shuffleCards[this.currentIndex]);
-      this.thirdHand.addCard(this.deck.shuffleCards[this.currentIndex]);
-      this.fourthHand.addCard(this.deck.shuffleCards[this.currentIndex]);
-      this.cribHand.addCard(this.deck.shuffleCards[this.currentIndex]);
+      this.firstHand.addCard(this.currentCard, true);
+      this.secondHand.addCard(this.currentCard, true);
+      this.thirdHand.addCard(this.currentCard, true);
+      this.fourthHand.addCard(this.currentCard, true);
+      this.cribHand.addCard(this.currentCard, true);
 
+      this.totalScore = this.firstHand.score.totalScore + this.secondHand.score.totalScore
+        + this.thirdHand.score.totalScore + this.fourthHand.score.totalScore + this.cribHand.score.totalScore;
+
+      // if the turn card is a jack then add 2
+      if (this.currentCard.value === 'J') { this.totalScore += 2; }
       this.firstHand.logHand('First Hand');
       this.secondHand.logHand('Second Hand');
       this.thirdHand.logHand('Third Hand');
@@ -93,7 +100,7 @@ export class TurnService {
   }
 
   scoreHand(hand: Hand, total: number) {
-    hand.score = total;
+    hand.score.totalScore = total;
     this.totalScore += total;
   }
 }
