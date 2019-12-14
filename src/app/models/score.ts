@@ -71,7 +71,14 @@ export class Score {
         threeCardCombo[0].sequence + 1 === threeCardCombo[1].sequence &&
         threeCardCombo[1].sequence + 1 === threeCardCombo[2].sequence &&
         ((this.fiveCardStraight.length === 0) || !this.cardIsInThisRun(threeCardCombo[1], this.fiveCardStraight)) &&
-        ((this.fourCardStraights.length === 0) || !this.cardIsInThisRun(threeCardCombo[1], this.fourCardStraights[0]))
+        (
+          (this.fourCardStraights.length === 0) ||
+          (this.fourCardStraights.length === 1 && !this.cardIsInThisRun(threeCardCombo[1], this.fourCardStraights[0])) ||
+          (
+            !this.cardIsInThisRun(threeCardCombo[1], this.fourCardStraights[0]) &&
+            !this.cardIsInThisRun(threeCardCombo[1], this.fourCardStraights[1])
+          )
+        )
       ) {
         this.threeCardStraights.push(threeCardCombo);
         this.totalScore += 3;
