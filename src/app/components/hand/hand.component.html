@@ -1,11 +1,11 @@
 <div class="hands">
   <div class="hand-stuff">
-    <button (click)="addCard()" [disabled]="hand?.slot4">Add Card</button>
-    <label>Score: {{ hand.score.totalScore }}</label>
+    <button class="add-card" (click)="addCard()" [disabled]="hand?.slot4">Add Card</button>
+    <div class="score">Score: {{ hand.score.totalScore }}</div>
   </div>
-  <app-card class="hand" [card]="hand?.slot1$ | async"></app-card>
-  <app-card class="hand" [card]="hand?.slot2$ | async"></app-card>
-  <app-card class="hand" [card]="hand?.slot3$ | async"></app-card>
-  <app-card class="hand" [card]="hand?.slot4$ | async"></app-card>
+  <app-card class="hand-card" [card]="hand?.slot1$ | async"></app-card>
+  <app-card class="hand-card" [card]="hand?.slot2$ | async"></app-card>
+  <app-card class="hand-card" [card]="hand?.slot3$ | async"></app-card>
+  <app-card class="hand-card" [card]="hand?.slot4$ | async"></app-card>
 </div>
 

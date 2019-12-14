@@ -1,8 +1,8 @@
 <div class="spread-out-deck">
   <div class="header">
     <app-card [card]="turnService.currentCard"></app-card>
-    Total Score: {{ turnService.totalScore }}
-    <button (click)="turnService.clearTurn()">New Turn</button>
+      <span>Total Score: {{ turnService.totalScore }}</span>
+      <button (click)="turnService.clearTurn()">New Turn</button>
   </div>
   <div class="hands">
     <app-hand [hand]="turnService.firstHand"></app-hand>
@@ -12,4 +12,3 @@
     <app-hand [hand]="turnService.cribHand"></app-hand>
   </div>
 </div>
-
