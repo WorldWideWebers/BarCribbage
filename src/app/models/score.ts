@@ -1,4 +1,5 @@
 import {Card} from './card';
+import {flush} from '@angular/core/testing';
 
 
 export class Score {
@@ -32,7 +33,7 @@ export class Score {
     this.nobsCard = null;
   }
 
-  public scoreHand(card: Card) {
+  public scoreHand(card: Card, isCribHand = false) {
     this.updateCombinations(card);
 
 
@@ -44,17 +45,39 @@ export class Score {
 
     this.checkForRuns();
 
-    this.checkForFlush();
+    this.checkForFlush(isCribHand);
 
   }
 
-  private checkForFlush() {
+  private checkForFlush(isCribHand) {
+    let flushScore = 0;
+    this.allOfASuit = [];
+
     const flushCombos = this.combinations.filter(combo =>
-      ((combo.length === 4 && this.comboMissingTurnCard(combo)) ||
-        combo.length === 5));
+      (combo.length === 4 || combo.length === 5));
     flushCombos.forEach(flushCombo => {
-      flushCombo.sort((a: Card, b: Card) => a.sequence - b.sequence);
+      if (this.allOfASuit.length === 0) {
+        flushCombo.sort((a: Card, b: Card) => a.sequence - b.sequence);
+
+        // go through the cards in the combo and check to see if they are all the same suit
+        let allSameSuit = true;
+        const firstSuit = flushCombo[0].suit;
+        flushCombo.forEach(c => {
+          if (c.suit !== firstSuit || (flushCombo.length === 5 && c === flushCombo[4])) {
+            allSameSuit = false;
+          }
+        });
+
+        if (allSameSuit && flushCombo.length === 5) {
+          this.allOfASuit = flushCombo;
+          flushScore = flushCombo.length;
+        } else if (allSameSuit && flushCombo.length === 4 && this.allOfASuit.length === 0) {
+          this.allOfASuit = flushCombo;
+          flushScore = flushCombo.length;
+        }
+      }
     });
+    this.totalScore += flushScore;
   }
 
   private checkForRuns() {

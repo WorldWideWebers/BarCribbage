@@ -5,6 +5,7 @@ import {Score} from './score';
 
 export class Hand {
   handFull$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  isCribHand = false;
 
   public slot1$: BehaviorSubject<Card> = new BehaviorSubject<Card>(null);
   public slot2$: BehaviorSubject<Card> = new BehaviorSubject<Card>(null);
@@ -69,7 +70,7 @@ export class Hand {
       this.handFull$.next(true);
     }
     if (isTurnCard) { this.score.nobsCard = card; }
-    this.score.scoreHand(card);
+    this.score.scoreHand(card, this.isCribHand);
   }
 
 }

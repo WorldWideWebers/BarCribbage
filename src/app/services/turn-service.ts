@@ -49,6 +49,7 @@ export class TurnService {
     this.fourthHand = new Hand();
     this.fourthHand$.next(this.fourthHand);
     this.cribHand = new Hand();
+    this.cribHand.isCribHand = true;
     this.cribHand$.next(this.cribHand);
 
     this.turnCard = this.deck.shuffledCards[20];
