@@ -8,10 +8,12 @@ import { CardComponent } from './components/card/card.component';
 import { TurnService } from './services/turn-service';
 import { TurnComponent } from './components/turn/turn.component';
 import { HandComponent } from './components/hand/hand.component';
+import { TestHandComponent } from './components/test-hand/test-hand.component';
+import {AppRoutingModule} from './app-routing.module';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule ],
-  declarations: [AppComponent, DeckComponent, CardComponent, TurnComponent, HandComponent],
+  imports:      [ BrowserModule, FormsModule, AppRoutingModule ],
+  declarations: [AppComponent, DeckComponent, CardComponent, TurnComponent, HandComponent, TestHandComponent],
   providers: [TurnService],
   bootstrap:    [ AppComponent ]
 })

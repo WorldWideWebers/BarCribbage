@@ -1,5 +1,4 @@
 import {Card} from './card';
-import {flush} from '@angular/core/testing';
 
 
 export class Score {
@@ -53,8 +52,7 @@ export class Score {
     let flushScore = 0;
     this.allOfASuit = [];
 
-    const flushCombos = this.combinations.filter(combo =>
-      (combo.length === 4 || combo.length === 5));
+    const flushCombos = this.combinations.filter(combo => combo.length === 4 );
     flushCombos.forEach(flushCombo => {
       if (this.allOfASuit.length === 0) {
         flushCombo.sort((a: Card, b: Card) => a.sequence - b.sequence);
@@ -63,17 +61,18 @@ export class Score {
         let allSameSuit = true;
         const firstSuit = flushCombo[0].suit;
         flushCombo.forEach(c => {
-          if (c.suit !== firstSuit || (flushCombo.length === 5 && c === flushCombo[4])) {
+          if (c.suit !== firstSuit) {
             allSameSuit = false;
           }
         });
+        if (allSameSuit && this.allOfASuit.length === 0) {
+          this.allOfASuit = flushCombo;
+          flushScore = flushCombo.length;
 
-        if (allSameSuit && flushCombo.length === 5) {
-          this.allOfASuit = flushCombo;
-          flushScore = flushCombo.length;
-        } else if (allSameSuit && flushCombo.length === 4 && this.allOfASuit.length === 0) {
-          this.allOfASuit = flushCombo;
-          flushScore = flushCombo.length;
+          // add a point if the turn card is also the same suit!
+          if (this.nobsCard && this.nobsCard.suit === flushCombo[0].suit) {
+            flushScore += 1;
+          }
         }
       }
     });
@@ -156,10 +155,8 @@ export class Score {
   }
 
   private scoreNobs() {
-// check for nobs
-    const oneCardCombos = this.combinations.filter(combo => combo.length === 1);
-
     if (this.nobsCard) {
+      const oneCardCombos = this.combinations.filter(combo => combo.length === 1 && combo[0].id !== this.nobsCard.id);
       this.totalScore += oneCardCombos.filter(combo => combo[0].suit === this.nobsCard.suit && combo[0].sequence === 11).length;
     }
   }

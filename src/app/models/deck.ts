@@ -57,7 +57,7 @@ export const INITIAL_DECK = [
 
 export class Deck {
     originalCards: Card[] = INITIAL_DECK;
-    shuffledCards: Card[] = this.originalCards;
+    shuffledCards: Card[] = Object.assign([], this.originalCards);
 
     constructor() {
         this.shuffleCards();
