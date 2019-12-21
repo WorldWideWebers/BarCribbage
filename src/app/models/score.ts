@@ -23,36 +23,25 @@ export class Score {
 
   constructor() {
     this.combinations = [];
-    this.pairs = [];
-    this.fifteens = [];
-    this.fiveCardStraight = [];
-    this.threeCardStraights = [];
-    this.fourCardStraights = [];
-    this.allOfASuit = [];
-    this.nobsCard = null;
+    this.clearAllCombos();
   }
 
   public scoreHand(card: Card, isCribHand = false) {
     this.updateCombinations(card);
-
-
+    this.clearAllCombos();
     this.scorePairs();
-
     this.score15s();
-
     this.scoreNobs();
-
     this.checkForRuns();
-
     this.checkForFlush(isCribHand);
-
   }
 
   private checkForFlush(isCribHand) {
     let flushScore = 0;
     this.allOfASuit = [];
 
-    const flushCombos = this.combinations.filter(combo => combo.length === 4 );
+    const flushCombos = this.combinations
+      .filter(combo => combo.length === 4 && (!this.nobsCard || !this.cardIsInThisRun(this.nobsCard, combo)));
     flushCombos.forEach(flushCombo => {
       if (this.allOfASuit.length === 0) {
         flushCombo.sort((a: Card, b: Card) => a.sequence - b.sequence);
@@ -83,6 +72,17 @@ export class Score {
     this.checkFor5CardRuns();
     this.checkFor4CardRuns();
     this.checkFor3CardRuns();
+  }
+
+  private clearAllCombos() {
+    this.pairs = [];
+    this.fifteens = [];
+    this.fiveCardStraight = [];
+    this.threeCardStraights = [];
+    this.fourCardStraights = [];
+    this.allOfASuit = [];
+    this.nobsCard = null;
+
   }
 
   private checkFor3CardRuns() {
