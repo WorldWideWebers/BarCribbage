@@ -64,9 +64,9 @@ export class TurnService {
 
   moveToHand(hand: Hand) {
     hand.addCard(this.currentCard);
-    this.changeIndex();
     this.totalScore = this.firstHand.score.totalScore + this.secondHand.score.totalScore
     + this.thirdHand.score.totalScore + this.fourthHand.score.totalScore + this.cribHand.score.totalScore;
+    this.changeIndex();
   }
 
   private changeIndex() {
