@@ -24,6 +24,12 @@
   border-radius: 0;
 }
 
+.scoring-block {
+  display: flex;
+  flex-direction: column;
+}
+
+
 .spread-out-deck {
   min-width: 335px;
 }

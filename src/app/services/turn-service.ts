@@ -20,6 +20,8 @@ export class TurnService {
   totalScore$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   turnComplete: boolean;
 
+  showScoring = true;
+
   deck: Deck;
   currentIndex: number;
   currentCard: Card;
@@ -33,6 +35,10 @@ export class TurnService {
 
   constructor() {
     this.clearTurn();
+  }
+
+  toggleScoring() {
+    this.showScoring = !this.showScoring;
   }
 
   clearTurn() {

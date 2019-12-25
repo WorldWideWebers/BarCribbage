@@ -1,7 +1,7 @@
 <div class="hands">
   <div class="hand-stuff">
     <button class="add-card" (click)="addCard()" [disabled]="hand?.slot4">Add Card</button>
-    <div class="score">Score: {{ hand.score.totalScore }}</div>
+    <div *ngIf="turnService.showScoring" class="score">Score: {{ hand.score.totalScore }}</div>
   </div>
   <app-card class="hand-card" [card]="hand?.slot1$ | async"></app-card>
   <app-card class="hand-card" [card]="hand?.slot2$ | async"></app-card>
