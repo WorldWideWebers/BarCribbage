@@ -4,7 +4,7 @@
   border-style: solid;
   border-width: medium;
   margin-bottom: 1rem;
-  min-height: 95px;
+  min-height: 100px;
 }
 
 .add-card {
@@ -31,9 +31,19 @@
 .hand-stuff {
   display: flex;
   flex-direction: column;
+  min-width: 80px;
+  max-width: 80px;
 }
 
-.hand-card {
-  margin-left: .5rem;
-  padding: .5rem 0;
+.hand-cards {
+  width: 100%;
+  padding: .75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+
+// .hand-card {
+//   margin-left: .5rem;
+//   padding: .5rem 0;
+// }
