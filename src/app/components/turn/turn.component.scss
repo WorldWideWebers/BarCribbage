@@ -43,9 +43,10 @@ main header {
 .scoring-block {
   display: flex;
   flex-direction: column;
-}
+  justify-content: center;
+  align-items: center;
 
-
-.spread-out-deck {
-  min-width: 335px;
+  button {
+    margin-bottom: .5rem;
+  }
 }

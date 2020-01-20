@@ -1,4 +1,4 @@
-.hands {
+main {
   display: flex;
   flex-direction: row;
   border-style: solid;
@@ -7,32 +7,32 @@
   min-height: 100px;
 }
 
-.add-card {
-  background: #764243;
-  color: white;
-  border: none;
-  border-radius: 0;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  height: 50%;
-  font-size: 1rem;
-  font-family: 'Times New Roman', Times, serif;
-}
-
-.score {
-  background: beige;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50%;
-  text-shadow: none;
-  color: black;
-}
-
-.hand-stuff {
+.hand-controls {
   display: flex;
   flex-direction: column;
   min-width: 80px;
   max-width: 80px;
+
+  button {
+    background: #764243;
+    color: white;
+    border: none;
+    border-radius: 0;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    height: 50%;
+    font-size: 1rem;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  div {
+    background: beige;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    text-shadow: none;
+    color: black;
+  }
 }
 
 .hand-cards {
@@ -42,8 +42,3 @@
   align-items: center;
   justify-content: space-between;
 }
-
-// .hand-card {
-//   margin-left: .5rem;
-//   padding: .5rem 0;
-// }
