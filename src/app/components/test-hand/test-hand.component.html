@@ -1,0 +1,41 @@
+<div class="test-hand">
+  <div class="hand-group">
+    <span>First Card</span>
+    <select name="first-card" id="first-card" [(ngModel)]="testHand.slot1">
+      <option *ngFor="let card of deck.originalCards" [ngValue]="card">{{ getCardString(card) }}</option>
+    </select>
+  </div>
+  <div class="hand-group">
+    <span>Second Card</span>
+    <select name="second-card" id="second-card" [(ngModel)]="testHand.slot2">
+      <option *ngFor="let card of deck.originalCards" [ngValue]="card">{{ getCardString(card) }}</option>
+    </select>
+  </div>
+  <div class="hand-group">
+    <span>Third Card</span>
+    <select name="third-card" id="third-card" [(ngModel)]="testHand.slot3">
+      <option *ngFor="let card of deck.originalCards" [ngValue]="card">{{ getCardString(card) }}</option>
+    </select>
+  </div>
+  <div class="hand-group">
+    <span>Fourth Card</span>
+    <select name="fourth-card" id="fourth-card" [(ngModel)]="testHand.slot4">
+      <option *ngFor="let card of deck.originalCards" [ngValue]="card">{{ getCardString(card) }}</option>
+    </select>
+  </div>
+  <div class="hand-group">
+    <span>Turn Card</span>
+    <select name="turn-card" id="turn-card" [(ngModel)]="turnCard">
+      <option *ngFor="let card of deck.originalCards" [ngValue]="card">{{ getCardString(card) }}</option>
+    </select>
+  </div>
+
+</div>
+<button (click)="scoreHand()">Score Hand</button>
+
+<div id="score">
+  <div id="total-score">Total Score: {{ score.totalScore }}</div>
+  <div id="pairs">
+    {{ score.pairs }}
+  </div>
+</div>

@@ -27,3 +27,25 @@ main header {
   flex-direction: column;
   height: 100%;
 }
+
+.header button {
+  background: #764243;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  border-color: #5e3536;
+  color: white;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1rem;
+  padding: .5rem;
+  align-self: center;
+  border-radius: 0;
+}
+
+.scoring-block {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.spread-out-deck {
+  min-width: 335px;
+}

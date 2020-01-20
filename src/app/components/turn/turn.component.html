@@ -1,7 +1,10 @@
 <main>
   <header>
     <app-card [card]="turnService.currentCard"></app-card>
-      <span>Total Score: {{ turnService.totalScore }}</span>
+      <div class="scoring-block">
+        <button (click)="turnService.toggleScoring()">{{ turnService.showScoring ? 'Hide Scoring' : 'Show Scoring' }}</button>
+        <span *ngIf="turnService.showScoring">Total Score: {{ turnService.totalScore }}</span>
+      </div>
       <button (click)="turnService.clearTurn()">New Turn</button>
   </header>
   <div class="hands">
