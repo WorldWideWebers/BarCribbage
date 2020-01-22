@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TurnService } from 'src/app/services/turn-service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-turn',
@@ -9,7 +10,8 @@ import { TurnService } from 'src/app/services/turn-service';
 export class TurnComponent implements OnInit {
 
   constructor(
-    public turnService: TurnService
+    public turnService: TurnService,
+    public authService: AuthService
   ) { }
 
   ngOnInit() {

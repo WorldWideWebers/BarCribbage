@@ -1,5 +1,10 @@
 <div class="spread-out-deck">
   <div class="header">
+    <button *ngIf="!authService.isLoggedIn" routerLink="/sign-in">Login</button>
+    <div *ngIf="authService.isLoggedIn">
+      <label>Welcome {{ authService.userData.displayName }}</label>
+      <button (click)="authService.SignOut()">Logout</button>
+    </div>
     <app-card [card]="turnService.currentCard"></app-card>
       <div class="scoring-block">
         <button (click)="turnService.toggleScoring()">{{ turnService.showScoring ? 'Hide Scoring' : 'Show Scoring' }}</button>
