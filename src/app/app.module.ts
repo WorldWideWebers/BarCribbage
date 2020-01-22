@@ -10,10 +10,11 @@ import { TurnComponent } from './components/turn/turn.component';
 import { HandComponent } from './components/hand/hand.component';
 import { TestHandComponent } from './components/test-hand/test-hand.component';
 import {AppRoutingModule} from './app-routing.module';
+import { SplashComponent } from './splash/splash.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, AppRoutingModule ],
-  declarations: [AppComponent, DeckComponent, CardComponent, TurnComponent, HandComponent, TestHandComponent],
+  declarations: [AppComponent, DeckComponent, CardComponent, TurnComponent, HandComponent, TestHandComponent, SplashComponent],
   providers: [TurnService],
   bootstrap:    [ AppComponent ]
 })

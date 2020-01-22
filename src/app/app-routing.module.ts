@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TurnComponent } from './components/turn/turn.component';
 import { TestHandComponent } from './components/test-hand/test-hand.component';
+import { SplashComponent } from './splash/splash.component';
 
 const routes: Routes = [
-  { path: '', component: TurnComponent },
-  { path: 'test-hand', component: TestHandComponent }
+  { path: '', component: SplashComponent },
+  { path: 'test-hand', component: TestHandComponent },
+  { path: 'splash', component: SplashComponent }
 ];
 
 @NgModule({
