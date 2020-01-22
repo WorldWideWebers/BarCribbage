@@ -1,6 +1,10 @@
 <main>
   <header>
-    <app-card [card]="turnService.currentCard"></app-card>
+    <button *ngIf="!authService.isLoggedIn" routerLink="/sign-in">Login</button>
+    <div *ngIf="authService.isLoggedIn">
+      <label>Welcome {{ authService.userData.displayName }}</label>
+      <button (click)="authService.SignOut()">Logout</button>
+    </div><app-card [card]="turnService.currentCard"></app-card>
       <div class="scoring-block">
         <button (click)="turnService.toggleScoring()">{{ turnService.showScoring ? 'Hide Scoring' : 'Show Scoring' }}</button>
         <span *ngIf="turnService.showScoring">Total Score: {{ turnService.totalScore }}</span>
