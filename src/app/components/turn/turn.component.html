@@ -1,17 +1,16 @@
-<div class="spread-out-deck">
-  <div class="header">
+<main>
+  <header>
     <button *ngIf="!authService.isLoggedIn" routerLink="/sign-in">Login</button>
     <div *ngIf="authService.isLoggedIn">
       <label>Welcome {{ authService.userData.displayName }}</label>
       <button (click)="authService.SignOut()">Logout</button>
-    </div>
-    <app-card [card]="turnService.currentCard"></app-card>
+    </div><app-card [card]="turnService.currentCard"></app-card>
       <div class="scoring-block">
         <button (click)="turnService.toggleScoring()">{{ turnService.showScoring ? 'Hide Scoring' : 'Show Scoring' }}</button>
         <span *ngIf="turnService.showScoring">Total Score: {{ turnService.totalScore }}</span>
       </div>
       <button (click)="turnService.clearTurn()">New Turn</button>
-  </div>
+  </header>
   <div class="hands">
     <app-hand [hand]="turnService.firstHand"></app-hand>
     <app-hand [hand]="turnService.secondHand"></app-hand>
@@ -19,4 +18,4 @@
     <app-hand [hand]="turnService.fourthHand"></app-hand>
     <app-hand [hand]="turnService.cribHand"></app-hand>
   </div>
-</div>
+</main>

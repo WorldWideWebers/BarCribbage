@@ -1,39 +1,44 @@
-.hands {
+main {
   display: flex;
   flex-direction: row;
   border-style: solid;
   border-width: medium;
   margin-bottom: 1rem;
-  min-height: 95px;
+  min-height: 100px;
 }
 
-.add-card {
-  background: #764243;
-  color: white;
-  border: none;
-  border-radius: 0;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  height: 50%;
-  font-size: 1rem;
-  font-family: 'Times New Roman', Times, serif;
-}
-
-.score {
-  background: beige;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50%;
-  text-shadow: none;
-  color: black;
-}
-
-.hand-stuff {
+.hand-controls {
   display: flex;
   flex-direction: column;
+  min-width: 80px;
+  max-width: 80px;
+
+  button {
+    background: #764243;
+    color: white;
+    border: none;
+    border-radius: 0;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    height: 100%;
+    font-size: 1rem;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  div {
+    background: beige;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-shadow: none;
+    color: black;
+  }
 }
 
-.hand-card {
-  margin-left: .5rem;
-  padding: .5rem 0;
+.hand-cards {
+  width: 100%;
+  padding: .75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
