@@ -1,3 +1,51 @@
-<p>
-  splash works!
-</p>
+<main>
+  <h1>Welcome to Bar Cribbage!</h1>
+  <div id="cards">
+    <div class="card" style="color:black;">
+      <span>4</span>
+      <span>♣</span>
+    </div>
+    <div class="card" style="color:red;">
+      <span>3</span>
+      <span>♦</span>
+    </div>
+    <div class="card" style="color:black;">
+      <span>2</span>
+      <span>♠</span>
+    </div>
+    <div class="card" style="color:red;">
+      <span>A</span>
+      <span>♥</span>
+    </div>
+  </div>
+  <p>
+    You have the opportunity to play five hands, one card at a time. Click on the “Add Card” button for the hand that you
+    want to add the card to. The basic rules of cribbage apply:
+  </p>
+  <ol>
+    <li>
+      You get two points for each pair. If you have three of the same card, you then get six (three separate pairs for
+      two
+      points each). Four of the same give you 12.
+    </li>
+    <li>
+      You get one point for each card in a run (four, five, six) is three points. Eight, nine, 10, or J is four points.
+      One through five yields five points.
+    </li>
+    <li>
+      You get two points for each combination of 15 (one of the many things that makes cribbage different!).
+    </li>
+    <li>
+      If you have a Jack of the same suit as the “turn card” (the card showing after all the hands are full), you get
+      a point. If the “turn card” itself is a Jack, then you get two points.
+    </li>
+  </ol>
+  <p>
+    Each hand will be scored as it grows.
+    When all hands are complete, then the total is calculated.
+  </p>
+  <footer>
+    <button routerLink="/sign-in">Log In</button>
+    <button (click)="navigateToTurn()">Play Without Logging In</button>
+  </footer>
+</main>

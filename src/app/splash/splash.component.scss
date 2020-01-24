@@ -1,0 +1,13 @@
+footer {
+    display: flex;
+    justify-content: center;
+
+    button:first-of-type {
+        margin-right: 1rem;
+    }
+}
+
+#cards {
+    display: flex;
+    justify-content: space-around;
+}

@@ -10,3 +10,79 @@ body {
     color: white;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
+
+main {
+    min-width: 335px;
+    max-width: 335px;
+}
+
+h1 {
+    text-align: center;
+    color: beige;
+    margin-top: 0;
+}
+  
+button {
+    background: #764243;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    border-color: #5e3536;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1rem;
+    padding: .5rem;
+    align-self: center;
+    border-radius: 0;
+    text-transform: capitalize;
+}
+
+.card {
+    box-sizing: border-box;
+    border: 1px solid black;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 1rem;
+    text-shadow: none;
+    font-family: 'Times New Roman', Times, serif;
+    width: 50px;
+    height: 75px;
+    font-size: 1.25rem;
+}
+
+.user-page {
+    border: 2px solid white;
+    padding: 1rem 0;
+    width: 340px;
+    height: 485px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    section {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .main-section {
+        align-items: center;
+    
+        input {
+            font-size: 1rem;
+            font-family: 'Times New Roman';
+            margin-bottom: 1rem;
+        }
+    }
+
+    .other-options button {
+        margin-bottom: .5rem;
+    }
+
+    p {
+        text-align: center;
+    }
+}

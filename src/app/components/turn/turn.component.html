@@ -1,10 +1,9 @@
 <main>
-  <header>
-    <button *ngIf="!authService.isLoggedIn" routerLink="/sign-in">Login</button>
-    <div *ngIf="authService.isLoggedIn">
-      <label>Welcome {{ authService.userData.displayName }}</label>
-      <button (click)="authService.SignOut()">Logout</button>
-    </div><app-card [card]="turnService.currentCard"></app-card>
+  <h1 *ngIf="authService.isLoggedIn">
+    Welcome, {{ authService.userData.displayName || authService.userData.email }}
+  </h1>
+  <header id="game-options">
+    <app-card [card]="turnService.currentCard"></app-card>
       <div class="scoring-block">
         <button (click)="turnService.toggleScoring()">{{ turnService.showScoring ? 'Hide Scoring' : 'Show Scoring' }}</button>
         <span *ngIf="turnService.showScoring">Total Score: {{ turnService.totalScore }}</span>
@@ -18,4 +17,9 @@
     <app-hand [hand]="turnService.fourthHand"></app-hand>
     <app-hand [hand]="turnService.cribHand"></app-hand>
   </div>
+  <footer>
+    <button (click)="navigateToSplash()">Rules</button>
+    <button *ngIf="!authService.isLoggedIn" routerLink="/sign-in">Login</button>
+    <button *ngIf="authService.isLoggedIn" (click)="authService.SignOut()">Log Out</button>
+  </footer>
 </main>
