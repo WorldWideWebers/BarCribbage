@@ -69,7 +69,9 @@ export class Hand {
       this.slot4$.next(this.slot4);
       this.handFull$.next(true);
     }
-    if (isTurnCard) { this.score.nobsCard = card; }
+    if (isTurnCard) {
+      this.score.nobsCard = card;
+    }
     this.score.scoreHand(card, this.isCribHand);
   }
 
