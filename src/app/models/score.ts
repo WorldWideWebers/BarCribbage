@@ -41,7 +41,9 @@ export class Score {
     this.allOfASuit = [];
 
     const flushCombos = this.combinations
-      .filter(combo => combo.length === 4 && (!this.nobsCard || !this.cardIsInThisRun(this.nobsCard, combo)));
+      .filter(combo => (
+        combo.length === 4 && (!this.nobsCard || !this.cardIsInThisRun(this.nobsCard, combo))
+      ));
     flushCombos.forEach(flushCombo => {
       if (this.allOfASuit.length === 0) {
         flushCombo.sort((a: Card, b: Card) => a.sequence - b.sequence);
@@ -81,7 +83,7 @@ export class Score {
     this.threeCardStraights = [];
     this.fourCardStraights = [];
     this.allOfASuit = [];
-    this.nobsCard = null;
+    // this.nobsCard = null;
 
   }
 
