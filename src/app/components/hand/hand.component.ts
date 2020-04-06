@@ -11,7 +11,9 @@ export class HandComponent implements OnInit {
 
   @Input() hand: Hand;
 
-  constructor(public turnService: TurnService) { }
+  constructor(public turnService: TurnService) {
+    this.hand = new Hand();
+  }
 
   ngOnInit() {
   }

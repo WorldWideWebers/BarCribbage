@@ -1,13 +1,12 @@
 <main>
   <div class="hand-controls">
     <button (click)="addCard()" [disabled]="hand?.slot4">Add Card</button>
-    <div *ngIf="turnService.showScoring" class="score">Score: {{ hand.score.totalScore }}</div>
+    <div *ngIf="turnService.showScoring" class="score">Score: {{ hand?.score.totalScore }}</div>
   </div>
   <div class="hand-cards">
-    <app-card [card]="hand?.slot1$ | async"></app-card>
-    <app-card [card]="hand?.slot2$ | async"></app-card>
-    <app-card [card]="hand?.slot3$ | async"></app-card>
-    <app-card [card]="hand?.slot4$ | async"></app-card>
+    <app-card [card]="hand?.slot1"></app-card>
+    <app-card [card]="hand?.slot2"></app-card>
+    <app-card [card]="hand?.slot3"></app-card>
+    <app-card [card]="hand?.slot4"></app-card>
   </div>
 </main>
-

@@ -3,19 +3,19 @@
     Welcome, {{ authService.userData.displayName || authService.userData.email }}
   </h1>
   <header id="game-options">
-    <app-card [card]="turnService.currentCard"></app-card>
+    <app-card [card]="turnService.turn.currentCard"></app-card>
       <div class="scoring-block">
         <button (click)="turnService.toggleScoring()">{{ turnService.showScoring ? 'Hide Scoring' : 'Show Scoring' }}</button>
-        <span *ngIf="turnService.showScoring">Total Score: {{ turnService.totalScore }}</span>
+        <span *ngIf="turnService.showScoring">Total Score: {{ turnService.turn.totalScore }}</span>
       </div>
       <button (click)="turnService.clearTurn()">New Turn</button>
   </header>
   <div class="hands">
-    <app-hand [hand]="turnService.firstHand"></app-hand>
-    <app-hand [hand]="turnService.secondHand"></app-hand>
-    <app-hand [hand]="turnService.thirdHand"></app-hand>
-    <app-hand [hand]="turnService.fourthHand"></app-hand>
-    <app-hand [hand]="turnService.cribHand"></app-hand>
+    <app-hand [hand]="turnService.turn.firstHand"></app-hand>
+    <app-hand [hand]="turnService.turn.secondHand"></app-hand>
+    <app-hand [hand]="turnService.turn.thirdHand"></app-hand>
+    <app-hand [hand]="turnService.turn.fourthHand"></app-hand>
+    <app-hand [hand]="turnService.turn.cribHand"></app-hand>
   </div>
   <footer>
     <button (click)="navigateToSplash()">Rules</button>
