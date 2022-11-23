@@ -139,5 +139,8 @@
       }
     }
   },
-  "defaultProject": "bar-cribbage"
+  "defaultProject": "bar-cribbage",
+  "cli": {
+    "analytics": "808ac2d9-e284-4675-bb8f-1bb3f14e5e5b"
+  }
 }
