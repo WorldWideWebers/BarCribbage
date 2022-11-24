@@ -4,7 +4,7 @@
     "indexes": "firestore.indexes.json"
   },
   "hosting": {
-    "public": "dist/bar-cribbage",
+    "public": "dist",
     "ignore": [
       "firebase.json",
       "**/.*",

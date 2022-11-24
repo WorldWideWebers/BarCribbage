@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { TurnService } from 'src/app/services/turn-service';
-import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,11 +11,11 @@ export class TurnComponent implements OnInit {
 
   constructor(
     public turnService: TurnService,
-    public authService: AuthService,
     private router: Router
   ) { }
 
   ngOnInit() {
+    this.turnService.clearTurn();
   }
 
   navigateToSplash() {

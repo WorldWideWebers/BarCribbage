@@ -1,7 +1,4 @@
 <main>
-  <h1 *ngIf="authService.isLoggedIn">
-    Welcome, {{ authService.userData.displayName || authService.userData.email }}
-  </h1>
   <header id="game-options">
     <app-card [card]="turnService.turn.currentCard"></app-card>
       <div class="scoring-block">
@@ -19,7 +16,5 @@
   </div>
   <footer>
     <button (click)="navigateToSplash()">Rules</button>
-    <button *ngIf="!authService.isLoggedIn" routerLink="/sign-in">Login</button>
-    <button *ngIf="authService.isLoggedIn" (click)="authService.SignOut()">Log Out</button>
   </footer>
 </main>

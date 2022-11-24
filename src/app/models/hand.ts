@@ -1,6 +1,4 @@
 import {Card} from './card';
-import {BehaviorSubject} from 'rxjs';
-import {expressionChangedAfterItHasBeenCheckedError} from '@angular/core/src/view/errors';
 import {Score} from './score';
 
 export class Hand {

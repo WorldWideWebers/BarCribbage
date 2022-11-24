@@ -17,15 +17,22 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "aot": true,
-            "outputPath": "dist/bar-cribbage",
+            "allowedCommonJsDependencies": [
+              "applicationinsights-js",
+              "file-saver",
+              "rxjs/add/operator/map",
+              "rxjs/add/operator/take",
+              "util"
+            ],
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
+            "polyfills": "src/polyfills.ts",
             "assets": [
+              "src/assets",
               "src/favicon.ico",
-              "src/assets"
+              "src/web.config"
             ],
             "styles": [
               "src/styles.scss"
@@ -34,6 +41,12 @@
           },
           "configurations": {
             "production": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -46,19 +59,8 @@
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb"
-                }
-              ]
+              "vendorChunk": true,
+              "buildOptimizer": false
             }
           }
         },
@@ -68,8 +70,8 @@
             "browserTarget": "bar-cribbage:build"
           },
           "configurations": {
-            "production": {
-              "browserTarget": "bar-cribbage:build:production"
+            "prod": {
+              "browserTarget": "bar-cribbage:build:prod"
             }
           }
         },
@@ -83,16 +85,17 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "src/test.ts",
+            "karmaConfig": "./karma.conf.js",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
-            "karmaConfig": "src/karma.conf.js",
+            "scripts": [],
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [],
             "assets": [
+              "src/assets",
               "src/favicon.ico",
-              "src/assets"
+              "src/web.config"
             ]
           }
         },
@@ -103,9 +106,7 @@
               "src/tsconfig.app.json",
               "src/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": []
           }
         }
       }
